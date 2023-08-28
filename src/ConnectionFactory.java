@@ -42,7 +42,7 @@ public class ConnectionFactory {
                     System.out.println("Kilepes");
                     break;
                 default:
-                    System.out.println("Ervenytelen valasz! ");
+                    System.out.println("Ervenytelen valasz! :/ ");
                     break;
             }
         }
