@@ -39,10 +39,10 @@ public class ConnectionFactory {
                     updateUserPassword();
                     break;
                 case "6":
-                    System.out.println("Kilepes");
-                    break;
+                    System.out.println("Kilépés");
+                    return;
                 default:
-                    System.out.println("Ervenytelen valasz! :/ ");
+                    System.out.println("Érvénytelen válasz! :/ ");
                     break;
             }
         }
@@ -125,7 +125,7 @@ public class ConnectionFactory {
     }
 
     private void deleteUser() {
-        System.out.println("Felhasznalo ID-je akit torolni szeretnel : ");
+        System.out.println("Felhasználó ID-je akit törölni szeretnél : ");
         String userID = scanner.nextLine();
         try {
             String query = "DELETE FROM users WHERE id = ?";
@@ -133,9 +133,9 @@ public class ConnectionFactory {
             preparedStatement.setString(1, userID);
 
             if (preparedStatement.executeUpdate() > 0) {
-                System.out.println("A felhasznalot sikeresen toroltuk");
+                System.out.println("A felhasználót sikeresen töröltük");
             } else {
-                System.out.println("Nem talalhato ilyen felhasznalo! ");
+                System.out.println("Nem található ilyen felhasználó! ");
             }
 
             preparedStatement.close();
@@ -146,7 +146,7 @@ public class ConnectionFactory {
     }
 
     private void updateUserPassword() {
-        System.out.println("Felhasznalo akinek szeretned felulirni a jelszavat");
+        System.out.println("Felhasználó akinek szeretnéd felülírni a jelszavát");
         String userID = scanner.nextLine();
         try {
             String query = "UPDATE users SET password = ? WHERE id = ?";
@@ -156,9 +156,9 @@ public class ConnectionFactory {
             preparedStatement.setString(1, newPassword);
             preparedStatement.setString(2, userID);
             if (preparedStatement.executeUpdate() > 0) {
-                System.out.println("Jelszo sikeresen megvaltoztatva");
+                System.out.println("Jelszó sikeresen megváltoztatva");
             } else {
-                System.out.println("Nem talalhato ilyen id");
+                System.out.println("Nem talalható ilyen ID");
             }
             preparedStatement.close();
         } catch (SQLException e) {
