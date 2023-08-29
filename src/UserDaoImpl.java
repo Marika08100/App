@@ -62,7 +62,7 @@ public class UserDaoImpl implements DAO {
     public void findUserById() {
         System.out.print("Keresett felhasználó ID-je: ");
         int searchID = scanner.nextInt();
-        scanner.nextLine(); // Üres sor beolvasás
+        scanner.nextLine();
 
         String query = "SELECT * FROM users WHERE id = ?";
         try (Connection connection = ConnectionFactory.getConnection();
@@ -109,7 +109,7 @@ public class UserDaoImpl implements DAO {
     public void deleteUser() {
         System.out.println("Felhasználó ID-je akit törölni szeretnél : ");
         int userID = scanner.nextInt();
-        scanner.nextLine(); // Üres sor beolvasás
+        scanner.nextLine();
 
         String query = "DELETE FROM users WHERE id = ?";
         try (Connection connection = ConnectionFactory.getConnection();
@@ -130,7 +130,7 @@ public class UserDaoImpl implements DAO {
     public void updateUserPassword() {
         System.out.print("Felhasználó ID-je akinek szeretnéd felülírni a jelszavát: ");
         int userID = scanner.nextInt();
-        scanner.nextLine(); // Üres sor beolvasás
+        scanner.nextLine();
 
         System.out.print("Új jelszó: ");
         String newPassword = scanner.nextLine();
